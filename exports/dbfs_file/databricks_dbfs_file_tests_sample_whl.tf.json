@@ -1,0 +1,14 @@
+{
+    "resource": {
+        "databricks_dbfs_file": {
+            "databricks_dbfs_file_tests_sample_whl": {
+                "content_b64_md5": "${md5(filebase64(pathexpand(\"databricks_dbfs_file_tests_sample_whl\")))}",
+                "mkdirs": true,
+                "overwrite": true,
+                "path": "/tests/sample.whl",
+                "source": "${pathexpand(\"databricks_dbfs_file_tests_sample_whl\")}",
+                "validate_remote_file": true
+            }
+        }
+    }
+}

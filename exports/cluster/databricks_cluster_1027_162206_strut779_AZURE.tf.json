@@ -1,0 +1,79 @@
+{
+    "resource": {
+        "databricks_cluster": {
+            "databricks_cluster_1027_162206_strut779_AZURE": {
+                "autoscale": {
+                    "max_workers": 2,
+                    "min_workers": 1
+                },
+                "autotermination_minutes": 20,
+                "cluster_name": "uz With Pool and Policy",
+                "count": "${var.CLOUD == \"AZURE\" ? 1 : 0}",
+                "custom_tags": {
+                    "ResourceClass": "Serverless"
+                },
+                "driver_node_type_id": "${var.i3_xlarge}",
+                "dynamic": [
+                    {
+                        "aws_attributes": {
+                            "content": {
+                                "availability": "SPOT_WITH_FALLBACK",
+                                "first_on_demand": 0,
+                                "spot_bid_price_percent": 100,
+                                "zone_id": "us-west-1a"
+                            },
+                            "for_each": "${var.CLOUD == \"AWS\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "enable_local_disk_encryption": false,
+                "init_scripts": [
+                    {
+                        "dbfs": {
+                            "destination": "dbfs:/tests/empty.sh"
+                        }
+                    }
+                ],
+                "library": [
+                    {
+                        "jar": "dbfs:/tests/library.jar"
+                    },
+                    {
+                        "egg": "dbfs:/tests/sample.egg"
+                    },
+                    {
+                        "whl": "dbfs:/tests/sample.whl"
+                    },
+                    {
+                        "maven": {
+                            "coordinates": "com.crealytics:spark-excel_2.12:0.13.1"
+                        }
+                    },
+                    {
+                        "pypi": {
+                            "package": "mlflow"
+                        }
+                    },
+                    {
+                        "cran": {
+                            "package": "ggplot2"
+                        }
+                    }
+                ],
+                "node_type_id": "${var.i3_xlarge}",
+                "policy_id": "${databricks_cluster_policy.databricks_cluster_policy_E05E27B13F000289.id}",
+                "spark_conf": {
+                    "spark.databricks.cluster.profile": "serverless",
+                    "spark.databricks.delta.preview.enabled": "true",
+                    "spark.databricks.io.cache.enabled": "true",
+                    "spark.databricks.pyspark.enableProcessIsolation": "true",
+                    "spark.databricks.repl.allowedLanguages": "python,sql"
+                },
+                "spark_env_vars": {
+                    "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+                },
+                "spark_version": "7.2.x-scala2.12"
+            }
+        }
+    }
+}

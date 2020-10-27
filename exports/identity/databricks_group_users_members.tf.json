@@ -1,0 +1,35 @@
+{
+    "locals": {
+        "databricks_group_members_databricks_group_users_members_for_each_var": {
+            "group_1408089758448391": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_group.databricks_scim_groups[\"Navid Bazzazzadeh\"].id}"
+            },
+            "group_6402556177637794": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_group.databricks_scim_groups[\"Itai Weiss\"].id}"
+            },
+            "group_6539285094522252": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_group.databricks_scim_groups[\"E2 GTM\"].id}"
+            },
+            "group_8104080872980489": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_group.databricks_scim_groups[\"Navid Bazzazzadeh\"].id}"
+            },
+            "group_8411899142827107": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_group.databricks_scim_groups[\"sri.tikkireddy@databricks.com\"].id}"
+            }
+        }
+    },
+    "resource": {
+        "databricks_group_member": {
+            "databricks_group_users_members": {
+                "for_each": "${local.databricks_group_members_databricks_group_users_members_for_each_var}",
+                "group_id": "${each.value.group_id}",
+                "member_id": "${each.value.member_id}"
+            }
+        }
+    }
+}
