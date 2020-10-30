@@ -1,5 +1,0 @@
-IntegrationTest_scope1_it_key1_var=
-IntegrationTest_scope2_it_key2_var=
-uz_IntegrationTest_scope1_uz_key1_var=
-uz_IntegrationTest_scope2_uz_key2_var=
-uz_IntegrationTest_scope3_db_password_var=
