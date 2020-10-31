@@ -1,0 +1,14 @@
+{
+    "resource": {
+        "databricks_job": {
+            "databricks_job_275_AWS": {
+                "count": "${var.CLOUD == \"AWS\" ? 1 : 0}",
+                "email_notifications": {},
+                "existing_cluster_id": "${databricks_cluster.databricks_cluster_1031_155907_rated481_AWS[0].id}",
+                "max_concurrent_runs": 1,
+                "name": "uz_IntegrationTestJob4 existing",
+                "timeout_seconds": 0
+            }
+        }
+    }
+}

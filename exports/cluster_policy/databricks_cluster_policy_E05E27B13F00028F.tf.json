@@ -1,0 +1,10 @@
+{
+    "resource": {
+        "databricks_cluster_policy": {
+            "databricks_cluster_policy_E05E27B13F00028F": {
+                "definition": "{\n\t\"autotermination_minutes\": {\n    \t\"type\":\"range\",\n        \"minValue\": 15,\n        \"maxValue\": 120\n    }\n}",
+                "name": "uz second policy"
+            }
+        }
+    }
+}
