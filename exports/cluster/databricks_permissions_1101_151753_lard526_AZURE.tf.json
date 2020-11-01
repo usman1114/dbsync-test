@@ -1,0 +1,17 @@
+{
+    "resource": {
+        "databricks_permissions": {
+            "databricks_permissions_1101_151753_lard526_AZURE": {
+                "access_control": [
+                    {
+                        "group_name": null,
+                        "permission_level": "CAN_MANAGE",
+                        "user_name": "e2-gtm@databricks.com"
+                    }
+                ],
+                "cluster_id": "${databricks_cluster.databricks_cluster_1101_151753_lard526_AZURE[0].id}",
+                "count": "${var.CLOUD == \"AZURE\" ? 1 : 0}"
+            }
+        }
+    }
+}

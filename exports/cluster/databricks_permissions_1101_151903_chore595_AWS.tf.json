@@ -1,0 +1,17 @@
+{
+    "resource": {
+        "databricks_permissions": {
+            "databricks_permissions_1101_151903_chore595_AWS": {
+                "access_control": [
+                    {
+                        "group_name": null,
+                        "permission_level": "CAN_MANAGE",
+                        "user_name": "e2-gtm@databricks.com"
+                    }
+                ],
+                "cluster_id": "${databricks_cluster.databricks_cluster_1101_151903_chore595_AWS[0].id}",
+                "count": "${var.CLOUD == \"AWS\" ? 1 : 0}"
+            }
+        }
+    }
+}

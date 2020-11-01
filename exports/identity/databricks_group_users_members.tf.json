@@ -1,0 +1,35 @@
+{
+    "locals": {
+        "databricks_group_members_databricks_group_users_members_for_each_var": {
+            "user_1408089758448391": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_user.databricks_scim_users[\"navid@databricks.com\"].id}"
+            },
+            "user_6402556177637794": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_user.databricks_scim_users[\"itai@databricks.com\"].id}"
+            },
+            "user_6539285094522252": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_user.databricks_scim_users[\"e2-gtm@databricks.com\"].id}"
+            },
+            "user_8104080872980489": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_user.databricks_scim_users[\"bazzazzadeh@gmail.com\"].id}"
+            },
+            "user_8411899142827107": {
+                "group_id": "${databricks_group.databricks_scim_groups[\"users\"].id}",
+                "member_id": "${databricks_user.databricks_scim_users[\"sri.tikkireddy@databricks.com\"].id}"
+            }
+        }
+    },
+    "resource": {
+        "databricks_group_member": {
+            "databricks_group_users_members": {
+                "for_each": "${local.databricks_group_members_databricks_group_users_members_for_each_var}",
+                "group_id": "${each.value.group_id}",
+                "member_id": "${each.value.member_id}"
+            }
+        }
+    }
+}

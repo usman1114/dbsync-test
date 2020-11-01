@@ -1,0 +1,37 @@
+{
+    "resource": {
+        "databricks_instance_pool": {
+            "databricks_instance_pool_1101_151659_wikis13_pool_n6DP3alA": {
+                "custom_tags": {
+                    "custom": "1"
+                },
+                "dynamic": [
+                    {
+                        "aws_attributes": {
+                            "content": {
+                                "availability": "SPOT",
+                                "spot_bid_price_percent": 100,
+                                "zone_id": "us-west-1a"
+                            },
+                            "for_each": "${var.CLOUD == \"AWS\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "enable_elastic_disk": true,
+                "idle_instance_autotermination_minutes": 120,
+                "instance_pool_name": "uz_small instance pool 2",
+                "max_capacity": 5,
+                "min_idle_instances": "${var.databricks_instance_pool_1101_151659_wikis13_pool_n6DP3alA_var}",
+                "node_type_id": "${var.i3_xlarge}",
+                "preloaded_spark_versions": [
+                    "7.1.x-scala2.12"
+                ]
+            }
+        }
+    },
+    "variable": {
+        "databricks_instance_pool_1101_151659_wikis13_pool_n6DP3alA_var": {
+            "default": 0
+        }
+    }
+}

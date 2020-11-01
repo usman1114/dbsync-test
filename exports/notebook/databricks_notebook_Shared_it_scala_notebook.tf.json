@@ -1,0 +1,14 @@
+{
+    "resource": {
+        "databricks_notebook": {
+            "databricks_notebook_Shared_it_scala_notebook": {
+                "content": "${filebase64(\"databricks_notebook_Shared_it_scala_notebook\")}",
+                "format": "SOURCE",
+                "language": "SCALA",
+                "mkdirs": true,
+                "overwrite": true,
+                "path": "/Shared/it_scala_notebook"
+            }
+        }
+    }
+}

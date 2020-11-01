@@ -1,0 +1,46 @@
+{
+    "resource": {
+        "databricks_cluster": {
+            "databricks_cluster_1101_151753_lard526_AWS": {
+                "autoscale": {
+                    "max_workers": 2,
+                    "min_workers": 1
+                },
+                "autotermination_minutes": 120,
+                "cluster_name": "no pool std cluster 1",
+                "count": "${var.CLOUD == \"AWS\" ? 1 : 0}",
+                "driver_node_type_id": "${var.i3_xlarge}",
+                "dynamic": [
+                    {
+                        "aws_attributes": {
+                            "content": {
+                                "availability": "SPOT_WITH_FALLBACK",
+                                "first_on_demand": 0,
+                                "spot_bid_price_percent": 100,
+                                "zone_id": "us-west-1a"
+                            },
+                            "for_each": "${var.CLOUD == \"AWS\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "enable_local_disk_encryption": false,
+                "init_scripts": [
+                    {
+                        "dbfs": {
+                            "destination": "dbfs:/tests/empty.sh"
+                        }
+                    }
+                ],
+                "library": [],
+                "node_type_id": "${var.i3_xlarge}",
+                "spark_conf": {
+                    "spark.databricks.delta.preview.enabled": "true"
+                },
+                "spark_env_vars": {
+                    "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+                },
+                "spark_version": "7.3.x-scala2.12"
+            }
+        }
+    }
+}

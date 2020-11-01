@@ -1,0 +1,41 @@
+{
+    "locals": {
+        "databricks_groups_for_each_var": {
+            "IntegrationTestGroup1": {
+                "allow_cluster_create": false,
+                "allow_instance_pool_create": false,
+                "display_name": "IntegrationTestGroup1"
+            },
+            "IntegrationTestGroup2": {
+                "allow_cluster_create": false,
+                "allow_instance_pool_create": false,
+                "display_name": "IntegrationTestGroup2"
+            },
+            "users": {
+                "allow_cluster_create": false,
+                "allow_instance_pool_create": false,
+                "display_name": "users"
+            },
+            "uz_IntegrationTestGroup1": {
+                "allow_cluster_create": false,
+                "allow_instance_pool_create": false,
+                "display_name": "uz_IntegrationTestGroup1"
+            },
+            "uz_IntegrationTestGroup2": {
+                "allow_cluster_create": false,
+                "allow_instance_pool_create": false,
+                "display_name": "uz_IntegrationTestGroup2"
+            }
+        }
+    },
+    "resource": {
+        "databricks_group": {
+            "databricks_scim_groups": {
+                "allow_cluster_create": "${each.value.allow_cluster_create}",
+                "allow_instance_pool_create": "${each.value.allow_instance_pool_create}",
+                "display_name": "${each.value.display_name}",
+                "for_each": "${local.databricks_groups_for_each_var}"
+            }
+        }
+    }
+}
