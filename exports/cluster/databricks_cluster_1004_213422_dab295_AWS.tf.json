@@ -1,0 +1,70 @@
+{
+    "resource": {
+        "databricks_cluster": {
+            "databricks_cluster_1004_213422_dab295_AWS": {
+                "autotermination_minutes": 30,
+                "cluster_name": "test-cluster",
+                "count": "${var.CLOUD == \"AWS\" ? 1 : 0}",
+                "driver_node_type_id": "${var.i3_xlarge}",
+                "dynamic": [
+                    {
+                        "aws_attributes": {
+                            "content": {
+                                "availability": "SPOT_WITH_FALLBACK",
+                                "ebs_volume_count": 0,
+                                "first_on_demand": 1,
+                                "spot_bid_price_percent": 100,
+                                "zone_id": "us-west-1a"
+                            },
+                            "for_each": "${var.CLOUD == \"AWS\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "enable_local_disk_encryption": false,
+                "init_scripts": [],
+                "library": [
+                    {
+                        "pypi": {
+                            "package": "bs4"
+                        }
+                    },
+                    {
+                        "pypi": {
+                            "package": "pycld2"
+                        }
+                    },
+                    {
+                        "jar": "dbfs:/tests/library.jar"
+                    },
+                    {
+                        "whl": "dbfs:/tests/networkx-2.5-py3-none-any.whl"
+                    },
+                    {
+                        "maven": {
+                            "coordinates": "com.crealytics:spark-excel_2.12:0.13.1",
+                            "exclusions": [
+                                "slf4j:slf4j:RELEASE"
+                            ]
+                        }
+                    },
+                    {
+                        "pypi": {
+                            "package": "mlflow"
+                        }
+                    },
+                    {
+                        "cran": {
+                            "package": "ggplot2",
+                            "repo": "https://cran.us.r-project.org"
+                        }
+                    }
+                ],
+                "node_type_id": "${var.i3_xlarge}",
+                "spark_env_vars": {
+                    "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+                },
+                "spark_version": "7.2.x-scala2.12"
+            }
+        }
+    }
+}

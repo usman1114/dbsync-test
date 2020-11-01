@@ -1,0 +1,17 @@
+{
+    "resource": {
+        "databricks_permissions": {
+            "databricks_permissions_277_AZURE": {
+                "access_control": [
+                    {
+                        "group_name": null,
+                        "permission_level": "IS_OWNER",
+                        "user_name": "navid@databricks.com"
+                    }
+                ],
+                "count": "${var.CLOUD == \"AZURE\" ? 1 : 0}",
+                "job_id": "${databricks_job.databricks_job_277_AZURE[0].id}"
+            }
+        }
+    }
+}
