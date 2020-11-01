@@ -1,0 +1,13 @@
+{
+    "variable": {
+        "i3_2xlarge": {
+            "default": "i3.2xlarge"
+        },
+        "i3_xlarge": {
+            "default": "i3.xlarge"
+        },
+        "r3_xlarge": {
+            "default": "r3.xlarge"
+        }
+    }
+}
