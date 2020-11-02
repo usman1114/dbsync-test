@@ -1,0 +1,14 @@
+{
+    "resource": {
+        "databricks_notebook": {
+            "databricks_notebook_Shared_it_python_notebook": {
+                "content": "${filebase64(\"databricks_notebook_Shared_it_python_notebook\")}",
+                "format": "SOURCE",
+                "language": "PYTHON",
+                "mkdirs": true,
+                "overwrite": true,
+                "path": "/Shared/it_python_notebook"
+            }
+        }
+    }
+}
