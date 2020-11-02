@@ -1,0 +1,25 @@
+{
+    "resource": {
+        "databricks_job": {
+            "databricks_job_287_AZURE": {
+                "count": "${var.CLOUD == \"AZURE\" ? 1 : 0}",
+                "email_notifications": {},
+                "max_concurrent_runs": 1,
+                "name": "uz_IntegrationTestJob3",
+                "new_cluster": {
+                    "enable_elastic_disk": true,
+                    "node_type_id": "i3.xlarge",
+                    "num_workers": 8,
+                    "spark_conf": {
+                        "spark.databricks.delta.preview.enabled": "true"
+                    },
+                    "spark_env_vars": {
+                        "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+                    },
+                    "spark_version": "7.0.x-scala2.12"
+                },
+                "timeout_seconds": 0
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "resource": {
+        "databricks_permissions": {
+            "databricks_permissions_E05E27B13F00029A": {
+                "access_control": [
+                    {
+                        "group_name": null,
+                        "permission_level": "CAN_USE",
+                        "user_name": "navid@databricks.com"
+                    }
+                ],
+                "cluster_policy_id": "${databricks_cluster_policy.databricks_cluster_policy_E05E27B13F00029A.id}"
+            }
+        }
+    }
+}
