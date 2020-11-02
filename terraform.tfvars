@@ -1,2 +1,0 @@
-uz_IntegrationTest_scope1_it_key1_var=
-uz_IntegrationTest_scope2_it_key2_var=
